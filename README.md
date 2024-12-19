@@ -1,15 +1,5 @@
-Welcome to your new dbt project!
+AdIntelAd Reporting DBT Project
 
-### Using the starter project
+### Overview
 
-Try running the following commands:
-- dbt run
-- dbt test
-
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+This project creates a custom model to consolidate ad platforms into a single table and populate the metrics table within AdIntel database.
