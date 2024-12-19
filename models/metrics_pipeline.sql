@@ -1,7 +1,76 @@
 {{ config(
     materialized='incremental',
-    unique_key=['data_date', 'src_campaign_id', 'data_source_type']
-) }}
+    unique_key=['data_date', 'src_campaign_id', 'data_source_type'],
+    post_hook=[
+        """
+        INSERT INTO public.metrics (
+            data_date,
+            clicks,
+            impr,
+            cost,
+            cpm,
+            ctr,
+            cpc,
+            month,
+            year,
+            paid_organic,
+            traffic_source,
+            data_source_type,
+            platform,
+            src_account_id,
+            src_campaign_id,
+            src_campaign_name
+        )
+        SELECT 
+            data_date,
+            clicks,
+            impr,
+            cost,
+            cpm,
+            ctr,
+            cpc,
+            month,
+            year,
+            paid_organic,
+            traffic_source,
+            data_source_type,
+            platform,
+            src_account_id,
+            src_campaign_id,
+            src_campaign_name
+        FROM {{ this }}
+        WHERE NOT EXISTS (
+            SELECT 1 
+            FROM public.metrics m 
+            WHERE m.data_date = {{ this }}.data_date 
+            AND m.src_campaign_id = {{ this }}.src_campaign_id 
+            AND m.data_source_type = {{ this }}.data_source_type
+        )
+        """,
+        """
+        UPDATE public.metrics m
+        SET 
+            clicks = s.clicks,
+            impr = s.impr,
+            cost = s.cost,
+            cpm = s.cpm,
+            ctr = s.ctr,
+            cpc = s.cpc,
+            month = s.month,
+            year = s.year,
+            paid_organic = s.paid_organic,
+            traffic_source = s.traffic_source,
+            platform = s.platform,
+            src_account_id = s.src_account_id,
+            src_campaign_name = s.src_campaign_name,
+            updated_at = CURRENT_TIMESTAMP
+        FROM {{ this }} s
+        WHERE m.data_date = s.data_date 
+        AND m.src_campaign_id = s.src_campaign_id 
+        AND m.data_source_type = s.data_source_type
+        """
+    ])
+}}
 
 WITH merged_metrics AS (
     -- Google Ads data
@@ -64,78 +133,5 @@ WITH merged_metrics AS (
         campaign_name as src_campaign_name
     FROM {{ source('facebook_ads', 'test_facebook_ads') }}
 )
-
--- Final output with post-hooks to update public.metrics table
-{{ config(
-    post_hook=[
-        """
-        INSERT INTO public.metrics (
-            data_date,
-            clicks,
-            impr,
-            cost,
-            cpm,
-            ctr,
-            cpc,
-            month,
-            year,
-            paid_organic,
-            traffic_source,
-            data_source_type,
-            platform,
-            src_account_id,
-            src_campaign_id,
-            src_campaign_name
-        )
-        SELECT 
-            data_date,
-            clicks,
-            impr,
-            cost,
-            cpm,
-            ctr,
-            cpc,
-            month,
-            year,
-            paid_organic,
-            traffic_source,
-            data_source_type,
-            platform,
-            src_account_id,
-            src_campaign_id,
-            src_campaign_name
-        FROM merged_metrics
-        WHERE NOT EXISTS (
-            SELECT 1 
-            FROM public.metrics m 
-            WHERE m.data_date = merged_metrics.data_date 
-            AND m.src_campaign_id = merged_metrics.src_campaign_id 
-            AND m.data_source_type = merged_metrics.data_source_type
-        )
-        """,
-        """
-        UPDATE public.metrics m
-        SET 
-            clicks = s.clicks,
-            impr = s.impr,
-            cost = s.cost,
-            cpm = s.cpm,
-            ctr = s.ctr,
-            cpc = s.cpc,
-            month = s.month,
-            year = s.year,
-            paid_organic = s.paid_organic,
-            traffic_source = s.traffic_source,
-            platform = s.platform,
-            src_account_id = s.src_account_id,
-            src_campaign_name = s.src_campaign_name,
-            updated_at = CURRENT_TIMESTAMP
-        FROM merged_metrics s
-        WHERE m.data_date = s.data_date 
-        AND m.src_campaign_id = s.src_campaign_id 
-        AND m.data_source_type = s.data_source_type
-        """
-    ])
-}}
 
 SELECT * FROM merged_metrics

@@ -47006,3 +47006,215 @@ SELECT 1
 [0m14:36:29.914138 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1119f8590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1119f8450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102e5d190>]}
 [0m14:36:29.914372 [debug] [MainThread]: Flushing usage events
 [0m14:36:30.114523 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:24:56.782403 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107f6b9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107fcffd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107fcfc10>]}
+
+
+============================== 13:24:56.785386 | 1105edfe-5923-4cb3-b0aa-b5404737947d ==============================
+[0m13:24:56.785386 [info ] [MainThread]: Running with dbt=1.9.0
+[0m13:24:56.785692 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/jacksonwhiting/.dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': '/Users/jacksonwhiting/programming/ad_intel_dbt/logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt compile --select metrics_pipeline', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m13:24:56.988163 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '1105edfe-5923-4cb3-b0aa-b5404737947d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1180107d0>]}
+[0m13:24:57.009908 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '1105edfe-5923-4cb3-b0aa-b5404737947d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102dbca90>]}
+[0m13:24:57.010329 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m13:24:57.057451 [debug] [MainThread]: checksum: c99e828bba267739642b5a3ce85f17518764ea526e0e6c4fdc649171c1a66bff, vars: {}, profile: , target: , version: 1.9.0
+[0m13:24:57.109108 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 1 files added, 0 files changed.
+[0m13:24:57.109375 [debug] [MainThread]: Partial parsing: added file: ad_intel_dbt://models/metrics_pipeline.sql
+[0m13:24:57.109533 [debug] [MainThread]: Partial parsing: deleted file: ad_intel_dbt://models/consolidated_ads.sql
+[0m13:24:57.218388 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '1105edfe-5923-4cb3-b0aa-b5404737947d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118ebe590>]}
+[0m13:24:57.247674 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jacksonwhiting/programming/ad_intel_dbt/target/manifest.json
+[0m13:24:57.249289 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jacksonwhiting/programming/ad_intel_dbt/target/semantic_manifest.json
+[0m13:24:57.260189 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '1105edfe-5923-4cb3-b0aa-b5404737947d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1191d0690>]}
+[0m13:24:57.260426 [info ] [MainThread]: Found 3 models, 2 sources, 429 macros
+[0m13:24:57.260582 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '1105edfe-5923-4cb3-b0aa-b5404737947d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x119108050>]}
+[0m13:24:57.261200 [info ] [MainThread]: 
+[0m13:24:57.261359 [info ] [MainThread]: Concurrency: 2 threads (target='dev')
+[0m13:24:57.261486 [info ] [MainThread]: 
+[0m13:24:57.261708 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m13:24:57.263427 [debug] [ThreadPool]: Acquiring new postgres connection 'list_postgres_test_ad_reporting'
+[0m13:24:57.288773 [debug] [ThreadPool]: Using postgres connection "list_postgres_test_ad_reporting"
+[0m13:24:57.288978 [debug] [ThreadPool]: On list_postgres_test_ad_reporting: BEGIN
+[0m13:24:57.289107 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:24:58.117957 [debug] [ThreadPool]: SQL status: BEGIN in 0.828 seconds
+[0m13:24:58.119475 [debug] [ThreadPool]: Using postgres connection "list_postgres_test_ad_reporting"
+[0m13:24:58.120377 [debug] [ThreadPool]: On list_postgres_test_ad_reporting: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "ad_intel_dbt", "target_name": "dev", "connection_name": "list_postgres_test_ad_reporting"} */
+select
+      'postgres' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'test_ad_reporting'
+    union all
+    select
+      'postgres' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'test_ad_reporting'
+    union all
+    select
+      'postgres' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'test_ad_reporting'
+  
+[0m13:24:58.212586 [debug] [ThreadPool]: SQL status: SELECT 3 in 0.091 seconds
+[0m13:24:58.216434 [debug] [ThreadPool]: On list_postgres_test_ad_reporting: ROLLBACK
+[0m13:24:58.298909 [debug] [ThreadPool]: On list_postgres_test_ad_reporting: Close
+[0m13:24:58.307660 [debug] [MainThread]: Using postgres connection "master"
+[0m13:24:58.308084 [debug] [MainThread]: On master: BEGIN
+[0m13:24:58.308518 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:24:59.071310 [debug] [MainThread]: SQL status: BEGIN in 0.763 seconds
+[0m13:24:59.071966 [debug] [MainThread]: Using postgres connection "master"
+[0m13:24:59.072290 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.0", "profile_name": "ad_intel_dbt", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m13:24:59.165136 [debug] [MainThread]: SQL status: SELECT 6 in 0.093 seconds
+[0m13:24:59.166219 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '1105edfe-5923-4cb3-b0aa-b5404737947d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11a98d410>]}
+[0m13:24:59.166527 [debug] [MainThread]: On master: ROLLBACK
+[0m13:24:59.238937 [debug] [MainThread]: On master: Close
+[0m13:24:59.241924 [debug] [Thread-1 (]: Began running node model.ad_intel_dbt.metrics_pipeline
+[0m13:24:59.242241 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_postgres_test_ad_reporting, now model.ad_intel_dbt.metrics_pipeline)
+[0m13:24:59.242454 [debug] [Thread-1 (]: Began compiling node model.ad_intel_dbt.metrics_pipeline
+[0m13:24:59.247384 [debug] [Thread-1 (]: Writing injected SQL for node "model.ad_intel_dbt.metrics_pipeline"
+[0m13:24:59.247819 [debug] [Thread-1 (]: Began executing node model.ad_intel_dbt.metrics_pipeline
+[0m13:24:59.248168 [debug] [Thread-1 (]: Finished running node model.ad_intel_dbt.metrics_pipeline
+[0m13:24:59.248665 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:24:59.248814 [debug] [MainThread]: Connection 'model.ad_intel_dbt.metrics_pipeline' was properly closed.
+[0m13:24:59.249107 [debug] [MainThread]: Command end result
+[0m13:24:59.259222 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/jacksonwhiting/programming/ad_intel_dbt/target/manifest.json
+[0m13:24:59.260028 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/jacksonwhiting/programming/ad_intel_dbt/target/semantic_manifest.json
+[0m13:24:59.263601 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/jacksonwhiting/programming/ad_intel_dbt/target/run_results.json
+[0m13:24:59.263807 [info ] [MainThread]: Compiled node 'metrics_pipeline' is:
+
+
+WITH merged_metrics AS (
+    -- Google Ads data
+    SELECT 
+        date as data_date,
+        clicks,
+        impressions as impr,
+        (cost_micros / 1000000.0) as cost,
+        CASE 
+            WHEN impressions > 0 THEN ROUND(CAST(((cost_micros / 1000000.0) / impressions) * 1000 AS numeric), 2)
+            ELSE 0 
+        END as cpm,
+        CASE 
+            WHEN impressions > 0 THEN ROUND(CAST((clicks::float / impressions) * 100 AS numeric), 2)
+            ELSE 0 
+        END as ctr,
+        CASE 
+            WHEN clicks > 0 THEN ROUND(CAST((cost_micros / 1000000.0) / clicks AS numeric), 2)
+            ELSE 0 
+        END as cpc,
+        EXTRACT(MONTH FROM date)::integer as month,
+        EXTRACT(YEAR FROM date)::integer as year,
+        'paid' as paid_organic,
+        'Google Ads' as traffic_source,
+        'Google Ads' as data_source_type,
+        'Google' as platform,
+        customer_id::text as src_account_id,
+        id::text as src_campaign_id,
+        name as src_campaign_name
+    FROM "postgres"."test_googleads_schema"."test_googleads_campaings"
+
+    UNION ALL
+
+    -- Facebook Ads data
+    SELECT 
+        date as data_date,
+        clicks,
+        impressions as impr,
+        spend as cost,
+        CASE 
+            WHEN impressions > 0 THEN ROUND(CAST((spend / impressions) * 1000 AS numeric), 2)
+            ELSE 0 
+        END as cpm,
+        CASE 
+            WHEN impressions > 0 THEN ROUND(CAST((clicks::float / impressions) * 100 AS numeric), 2)
+            ELSE 0 
+        END as ctr,
+        CASE 
+            WHEN clicks > 0 THEN ROUND(CAST(spend / clicks AS numeric), 2)
+            ELSE 0 
+        END as cpc,
+        EXTRACT(MONTH FROM date)::integer as month,
+        EXTRACT(YEAR FROM date)::integer as year,
+        'paid' as paid_organic,
+        'Facebook Ads' as traffic_source,
+        'Facebook Ads' as data_source_type,
+        'Facebook' as platform,
+        account_id::text as src_account_id,
+        campaign_id::text as src_campaign_id,
+        campaign_name as src_campaign_name
+    FROM "postgres"."facebook_ads"."test_facebook_ads"
+)
+
+SELECT * FROM merged_metrics
+[0m13:24:59.265004 [debug] [MainThread]: Resource report: {"command_name": "compile", "command_success": true, "command_wall_clock_time": 2.5162792, "process_in_blocks": "0", "process_kernel_time": 0.175132, "process_mem_max_rss": "134201344", "process_out_blocks": "0", "process_user_time": 0.904308}
+[0m13:24:59.265273 [debug] [MainThread]: Command `dbt compile` succeeded at 13:24:59.265230 after 2.52 seconds
+[0m13:24:59.265469 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107ff89d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107d8ea90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10045d1d0>]}
+[0m13:24:59.265652 [debug] [MainThread]: Flushing usage events
+[0m13:24:59.561501 [debug] [MainThread]: An error was encountered while trying to flush usage events
